@@ -1,0 +1,22 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "ignoreDeprecations": "6.0",
+    "resolvePackageJsonImports": true,
+    "target": "es2024",
+    "module": "esnext",
+    "skipLibCheck": true,
+    "paths": {
+      "@oko-monorepo/shadcn": ["./libs/shared/shadcn/src/index.ts"],
+      "@oko-monorepo/shadcn/utils": ["./libs/shared/shadcn/src/lib/utils.ts"],
+      "@oko-monorepo/shadcn/ui": ["./libs/shared/shadcn/src/ui"],
+      "@oko-monorepo/shadcn/lib": ["./libs/shared/shadcn/src/lib"],
+      "@oko-monorepo/shadcn/hooks": ["./libs/shared/shadcn/src/hooks"],
+      "@oko-monorepo/todo-service": ["./apps/todo/todo-service/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

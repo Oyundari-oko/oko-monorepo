@@ -1,0 +1,40 @@
+{
+  "name": "@oko-monorepo/shadcn",
+  "version": "0.0.1",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/inex.ts",
+      "import": "./src/inex.ts",
+      "default": "./src/inex.ts"
+    },
+    "./utils": {
+      "types": "./src/lib/utils.ts",
+      "import": "./src/lib/utils.ts",
+      "default": "./src/lib/utils.ts"
+    },
+    "./ui/*": {
+      "types": "./src/ui/*.tsx",
+      "import": "./src/ui/*.tsx",
+      "default": "./src/ui/*.tsx"
+    },
+    "./lib/*": {
+      "types": "./src/lib/*.ts",
+      "import": "./src/lib/*.ts",
+      "default": "./src/lib/*.ts"
+    },
+    "./hooks/*": {
+      "types": "./src/hooks",
+      "import": "./src/hooks",
+      "default": "./src/hooks"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "date-fns": "^4.4.0",
+    "next-themes": "^0.4.6",
+    "react-day-picker": "^10.0.1",
+    "sonner": "^2.0.7"
+  }
+}
