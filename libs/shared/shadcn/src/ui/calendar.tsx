@@ -90,7 +90,8 @@ function Calendar({
             : 'flex items-center gap-1 rounded-(--cell-radius) text-sm [&>svg]:size-3.5 [&>svg]:text-muted-foreground',
           defaultClassNames.caption_label,
         ),
-        table: 'w-full border-collapse',
+        // ЭНД ХУУЧИН 'table' БАЙСНЫГ 'month_grid' БОЛГОЖ ЗАСАВ
+        month_grid: 'w-full border-collapse',
         weekdays: cn('flex', defaultClassNames.weekdays),
         weekday: cn(
           'flex-1 rounded-(--cell-radius) text-[0.8rem] font-normal text-muted-foreground select-none',
@@ -170,13 +171,18 @@ function Calendar({
         DayButton: ({ ...props }) => (
           <CalendarDayButton locale={locale} {...props} />
         ),
-        WeekNumber: ({ children, ...props }) => {
+        // ЭНД td БАЙСНЫГ ТӨРӨЛ ЗӨРӨХӨӨС СЭРГИЙЛЖ div БОЛГОЖ ЗАСАВ
+        WeekNumber: ({ children, className, ...props }) => {
           return (
-            <td {...props}>
-              <div className="flex size-(--cell-size) items-center justify-center text-center">
-                {children}
-              </div>
-            </td>
+            <div
+              className={cn(
+                'flex size-(--cell-size) items-center justify-center text-center',
+                className,
+              )}
+              {...props}
+            >
+              {children}
+            </div>
           );
         },
         ...components,
