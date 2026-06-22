@@ -32,7 +32,7 @@ const GetUser = () => {
 
     try {
       const { data } = await getUsersQuery();
-      const allUsers = data?.getUsers || [];
+      const allUsers = (data as any)?.getUsers || [];
 
       const userExists = allUsers.find(
         (user: any) =>
