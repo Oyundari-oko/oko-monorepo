@@ -1,20 +1,18 @@
 'use client';
 
-import { useQuery } from '@apollo/client/react'; // эсвэл useLazyQuery ашиглаж байж болно
+import { useQuery } from '@apollo/client/react';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react'; 
 import { GET_USERS } from '../graphql/user';
 import { GetUser } from '../components/GetUser';
 
-export default function UserPage() {
+function UserContent() {
   const searchParams = useSearchParams();
   const userName = searchParams.get('name') || '';
 
-  const { data, loading, error, refetch } = useQuery<{ getUsers: any[] }>(
-    GET_USERS,
-    {
-      skip: !userName,
-    },
-  );
+  const { data, loading, error } = useQuery<{ getUsers: any[] }>(GET_USERS, {
+    skip: !userName,
+  });
 
   if (loading) {
     return (
@@ -23,6 +21,7 @@ export default function UserPage() {
       </div>
     );
   }
+
   if (error) {
     return (
       <div className="flex h-screen items-center justify-center font-sans text-red-500 font-medium">
@@ -30,6 +29,7 @@ export default function UserPage() {
       </div>
     );
   }
+
   const currentUser = data?.getUsers?.find(
     (user: any) => user.name.toLowerCase() === userName.toLowerCase(),
   );
@@ -51,5 +51,18 @@ export default function UserPage() {
         }}
       />
     </div>
+  );
+}
+export default function UserPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex h-screen items-center justify-center font-sans text-stone-500 font-medium">
+          Аппликейшн ачаалж байна...
+        </div>
+      }
+    >
+      <UserContent />
+    </Suspense>
   );
 }
