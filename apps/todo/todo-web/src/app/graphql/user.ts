@@ -1,6 +1,27 @@
+import { TypedDocumentNode } from '@apollo/client';
 import gql from 'graphql-tag';
 
-export const CREATE_USER = gql`
+type TData = {
+  message: string;
+};
+
+type CreateUserData = {
+  createUser: TData;
+};
+
+type TVariables = {
+  name: string;
+  xp: number;
+};
+
+type CreateUserVariables = {
+  input: TVariables;
+};
+
+export const CREATE_USER: TypedDocumentNode<
+  CreateUserData,
+  CreateUserVariables
+> = gql`
   mutation CreateUser($input: UserInput!) {
     createUser(input: $input) {
       message

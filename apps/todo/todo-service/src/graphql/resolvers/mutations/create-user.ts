@@ -14,17 +14,18 @@ export const createUser = async (
     });
 
     if (existingUser) {
-      return existingUser;
+      return { message: 'User already existed' };
     }
 
-    return await db.user.create({
+    await db.user.create({
       data: {
         name,
         xp,
-        level: 1,
       },
     });
-  } catch (err: any) {
-    throw new Error(`System err while joining: ${err.message || err}`);
+    return { message: 'Success created' };
+  } catch (err: unknown) {
+    if (err instanceof Error)
+      throw new Error(`System err while joining: ${err.message || err}`);
   }
 };

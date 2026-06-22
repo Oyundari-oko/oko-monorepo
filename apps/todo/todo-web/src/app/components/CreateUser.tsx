@@ -42,8 +42,9 @@ export const CreateUser = () => {
         },
         refetchQueries: [{ query: GET_USERS }],
       });
+      console.log('response: ', response);
 
-      if (response.data?.createUser) {
+      if (response.data?.createUser.message) {
         router.push(`/user?name=${encodeURIComponent(userName.trim())}`);
       }
     } catch (err) {
