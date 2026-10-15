@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc",
+    "module": "amd",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "types": ["node"]
+  },
+  "include": [
+    "jest.config.ts",
+    "jest.config.cts",
+    "specs/**/*.spec.ts",
+    "specs/**/*.spec.tsx",
+    "specs/**/*.test.tsx",
+    "specs/**/*.test.ts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.tsx",
+    "src/**/*.spec.tsx",
+    "src/**/*.test.js",
+    "src/**/*.spec.js",
+    "src/**/*.test.jsx",
+    "src/**/*.spec.jsx",
+    "src/**/*.d.ts"
+  ]
+}

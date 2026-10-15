@@ -4,7 +4,6 @@
     "rootDir": ".",
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
-    "ignoreDeprecations": "6.0",
     "resolvePackageJsonImports": true,
     "target": "es2024",
     "module": "esnext",
@@ -15,7 +14,15 @@
       "@oko-monorepo/shadcn/ui": ["./libs/shared/shadcn/src/ui"],
       "@oko-monorepo/shadcn/lib": ["./libs/shared/shadcn/src/lib"],
       "@oko-monorepo/shadcn/hooks": ["./libs/shared/shadcn/src/hooks"],
-      "@oko-monorepo/todo-service": ["./apps/todo/todo-service/src/index.ts"]
+      "@oko-monorepo/todo-service": ["./apps/todo/todo-service/src/index.ts"],
+      "@oko-monorepo/school-funding-service": [
+        "./apps/school-funding/school-funding-service/src/index.ts"
+      ],
+      "@oko-monorepo/clerk": ["./libs/shared/clerk/src/auth.ts"],
+      "@oko-monorepo/goal-tracker-service": [
+        "./apps/goal-tracker/goal-tracker-service/src/index.ts"
+      ],
+      "@oko-monorepo/sat-ai-coach": ["./sat-ai/sat-ai-coach/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "dist"]

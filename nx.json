@@ -59,6 +59,12 @@
         "style": "css",
         "linter": "eslint"
       }
+    },
+    "@nx/jest:configuration": {
+      "js": false
+    },
+    "@nx/next:application": {
+      "js": false
     }
   }
 }
